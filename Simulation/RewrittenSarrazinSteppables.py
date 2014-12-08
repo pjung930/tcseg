@@ -243,6 +243,8 @@ class Engrailed(SteppableBasePy):
                     cell.type = 2
                     if self.hinder_anterior_cells == True:
                         self.gene_product_secretor.secreteInsideCell(cell, 1)
+                elif cell.yCOM < self.stripe_y-5:
+                	cell.type = 3
 
     def step(self, mcs):
         if (mcs != 0) and (mcs % 300 == 0) :
@@ -251,7 +253,7 @@ class Engrailed(SteppableBasePy):
             for cell in self.cellList:
                 #cellDict = CompuCell.getPyAttrib(cell)
                 print "self.stripe_y:    ", self.stripe_y
-                if cell.type == 1: 
+                if cell.type == 3: 
                     if cell.yCOM < self.stripe_y + 6 and cell.yCOM > self.stripe_y - 6:
                         #cellDict["En_ON"] = True
                         cell.type = 2
